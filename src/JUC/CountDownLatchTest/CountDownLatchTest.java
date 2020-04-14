@@ -20,7 +20,18 @@ public class CountDownLatchTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("班长锁门");
+
+            new Thread(()->{
+                try {
+                    countDownLatch.await();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("班长锁门");
+            },"BBB").start();
+
+
+
     }
 
 }
